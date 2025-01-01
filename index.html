@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Count Down Timer</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: black;
+    }
+    h1{
+      font-weight: 900;
+      font-size: 55px;
+      text-align: center;
+      margin-top: 45px;
+      color: white;
+    }
+    .demo{
+      font-weight: 900;
+      font-size: 100px;
+      text-align: center;
+      background-color: rgb(238, 166, 12);
+      margin-top: 400px;
+      margin-left: 600px;
+      width: 50%;
+      border-radius: 50px;
+      color: rgb(78, 78, 219);
+    }
+  </style>
+</head>
+<body>
+  <h1>Event Date: 1st January, 2025 12:45 p.m.</h1>
+  <h1 class="demo"></h1>
+</body>
+<script>
+  const countDowndate = new Date("1 Jan, 2025 12:45")
+  // console.log(countDowndate);
+  
+  setInterval(() => {
+    const now = new Date()
+    // console.log(now);
+  
+    let distance = countDowndate - now
+    // console.log(distance);
+    
+    // Milliseconds to seconds = distance / 1000
+    let day = Math.floor((distance / 1000) / (24 * 60 * 60));
+    let hours = Math.floor(((distance / 1000) % (24 * 60 * 60)) / (60 * 60));
+    let minutes = Math.floor(((distance/1000) % (60 * 60)) / 60)
+    let seconds = Math.floor((distance/1000) % 60)
+
+    document.querySelector('.demo').innerHTML = `${day}d ${hours}h ${minutes}m ${seconds}s`
+  }, 1000);
+  
+  
+</script>
+</html>
